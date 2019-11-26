@@ -1,0 +1,45 @@
+{
+  "name": "@2toad/d20",
+  "version": "1.0.0",
+  "description": "A JavaScript dice roller (with TypeScript support)",
+  "homepage": "https://github.com/2Toad/d20",
+  "author": "2Toad",
+  "license": "MIT",
+  "engines": {
+    "node": "12.10.0"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "ts:watch": "tsc-watch",
+    "ts:clean": "ts-cleaner --watch",
+    "dev": "tsc && run-p ts:watch ts:clean",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "test": "mocha -r ts-node/register tests/**/*.spec.ts",
+    "prepare": "npm run build",
+    "clean": "rm -rf dist",
+    "build": "npm run lint && npm run test && npm run clean && tsc",
+    "deploy": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:2Toad/d20.git"
+  },
+  "keywords": [
+    "d20, dice, die, rpg"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "^4.2.3",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.12",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
+    "npm-run-all": "^4.1.5",
+    "ts-cleaner": "^1.0.4",
+    "ts-node": "^8.4.1",
+    "tsc-watch": "^4.0.0",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  }
+}
