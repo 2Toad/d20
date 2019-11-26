@@ -34,14 +34,24 @@ d20.roll('1d20');
 - Returns the sum of the resulting rolls
 
 ```
-d20.roll('1d20'); // roll one 20-sided die
-d20.roll('4d6'); // roll four 6-sided dice
+// roll one 20-sided die
+d20.roll('1d20');
+// Possible results: 1-20
+
+// roll four 6-sided dice
+d20.roll('4d6');
+// Possible results: 4-24
 ```
 
 #### dice(notation: string): number[]
 Same as `roll()`, except the result of each die roll is returned in an array
 
 ```
-d20.dice('1d20'); // roll one 20-sided die
-d20.dice('4d6'); // roll four 6-sided dice
+// roll one 20-sided die
+d20.dice('1d20');
+// Possible results: [1-20]
+
+// roll four 6-sided dice
+d20.dice('4d6');
+// Possible results: [1-6, 1-6, 1-6, 1-6]
 ```
