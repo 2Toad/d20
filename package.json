@@ -1,7 +1,7 @@
 {
   "name": "@2toad/d20",
   "version": "1.0.0",
-  "description": "A JavaScript dice roller (with TypeScript support)",
+  "description": "A magic bag of JavaScript dice (with TypeScript support)",
   "homepage": "https://github.com/2Toad/d20",
   "author": "2Toad",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "url": "git+ssh://git@github.com:2Toad/d20.git"
   },
   "keywords": [
-    "d20, dice, die, rpg"
+    "d20, dice, die, rpg, roll"
   ],
   "dependencies": {},
   "devDependencies": {

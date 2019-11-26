@@ -1,11 +1,6 @@
 import { Dice } from './dice';
 
 export class D20 {
-  roll(notation: string): number {
-    const rolls = this.dice(notation);
-    return this.total(rolls);
-  }
-
   dice(notation: string): number[] {
     const dice = new Dice(notation);
 
@@ -18,7 +13,12 @@ export class D20 {
     return rolls;
   }
 
-  total(rolls: number[]): number {
+  roll(notation: string): number {
+    const rolls = this.dice(notation);
+    return this.total(rolls);
+  }
+
+  private total(rolls: number[]): number {
     return rolls.reduce((a, b) => a + b, 0);
   }
 }

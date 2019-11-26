@@ -4,7 +4,7 @@
 [![Downloads](https://img.shields.io/npm/dm/@2toad/d20.svg)](https://www.npmjs.com/package/@2toad/d20)
 [![Build Status](https://travis-ci.org/2Toad/d20.svg?branch=master)](https://travis-ci.org/2Toad/d20)
 
-A JavaScript dice roller (with TypeScript support)
+A magic bag of JavaScript dice (with TypeScript support)
 
 ## Getting Started
 
