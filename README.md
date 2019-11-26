@@ -19,7 +19,7 @@ npm i @2toad/d20
 ```
 import { d20 } from '@2toad/d20';
 // or
-var d20 = require('@2toad/d20').d20;
+var d20 = require('@2toad/d20');
 
 d20.roll('1d20');
 ```

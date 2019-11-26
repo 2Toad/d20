@@ -1,27 +1,23 @@
 import { Dice } from './dice';
 
-export class D20 {
-  dice(notation: string): number[] {
-    const dice = new Dice(notation);
+export const dice = (notation: string): number[] => {
+  const d = new Dice(notation);
 
-    const rolls = [];
-    for (let i = 0; i < dice.quantity; i++) {
-      const roll = Math.floor(Math.random() * dice.sides + 1);
-      rolls.push(roll);
-    }
-
-    return rolls;
+  const rolls = [];
+  for (let i = 0; i < d.quantity; i++) {
+    const r = Math.floor(Math.random() * d.sides + 1);
+    rolls.push(r);
   }
 
-  roll(notation: string): number {
-    const rolls = this.dice(notation);
-    return this.total(rolls);
-  }
+  return rolls;
+};
 
-  private total(rolls: number[]): number {
-    return rolls.reduce((a, b) => a + b, 0);
-  }
-}
+export const roll = (notation: string): number => {
+  const rolls = dice(notation);
+  return rolls.reduce((a, b) => a + b, 0);
+};
 
-export const d20 = new D20();
-export default d20;
+export const d20 = {
+  dice,
+  roll,
+};

@@ -1,24 +1,24 @@
 import { expect } from 'chai';
 
-import { d20 } from '../src';
+import { roll, dice } from '../src';
 import { DiceHelper } from './dice-helper';
 import { RollHelper } from './roll-helper';
 
 describe('d20', () => {
   describe('dice', () => {
     it('should throw an error when no param is passed in', () => {
-      expect(d20.dice.bind('dice')).to.throw('Invalid format. Quantity (N) and Sides (X) are required: NdX');
+      expect(dice.bind('dice')).to.throw('Invalid format. Quantity (N) and Sides (X) are required: NdX');
     });
 
     it('should throw an error when invalid notation is used', () => {
-      expect(d20.dice.bind('dice', 'd')).to.throw('Invalid format. Quantity (N) and Sides (X) are required: NdX');
-      expect(d20.dice.bind('dice', '2d')).to.throw('Invalid format. Quantity (N) and Sides (X) are required: NdX');
-      expect(d20.dice.bind('dice', 'd6')).to.throw('Invalid format. Quantity (N) and Sides (X) are required: NdX');
-      expect(d20.dice.bind('dice', '26')).to.throw('Invalid format. Quantity (N) and Sides (X) are required: NdX');
+      expect(dice.bind('dice', 'd')).to.throw('Invalid format. Quantity (N) and Sides (X) are required: NdX');
+      expect(dice.bind('dice', '2d')).to.throw('Invalid format. Quantity (N) and Sides (X) are required: NdX');
+      expect(dice.bind('dice', 'd6')).to.throw('Invalid format. Quantity (N) and Sides (X) are required: NdX');
+      expect(dice.bind('dice', '26')).to.throw('Invalid format. Quantity (N) and Sides (X) are required: NdX');
     });
 
     it('should return an array of numbers', () => {
-      const result = d20.dice('2d6');
+      const result = dice('2d6');
 
       expect(Array.isArray(result)).to.equal(true);
       expect(typeof result[0]).to.equal('number');
@@ -51,7 +51,7 @@ describe('d20', () => {
 
   describe('roll', () => {
     it('should return a number', () => {
-      const result = d20.roll('2d6');
+      const result = roll('2d6');
 
       expect(typeof result).to.equal('number');
     });
