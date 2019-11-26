@@ -10,13 +10,13 @@ A magic bag of JavaScript dice (with TypeScript support)
 
 Install package
 
-```
+```Shell
 npm i @2toad/d20
 ```
 
 ## Usage
 
-```
+```JavaScript
 import { d20 } from '@2toad/d20';
 // or
 var d20 = require('@2toad/d20');
@@ -33,7 +33,7 @@ d20.roll('1d20');
 - Where N is the number of dice, and X is the number of sides each die has
 - Returns the sum of the resulting rolls
 
-```
+```JavaScript
 // roll one 20-sided die
 d20.roll('1d20');
 // Possible results: 1-20
@@ -46,7 +46,7 @@ d20.roll('4d6');
 #### dice(notation: string): number[]
 Same as `roll()`, except the result of each die roll is returned in an array
 
-```
+```JavaScript
 // roll one 20-sided die
 d20.dice('1d20');
 // Possible results: [1-20]
