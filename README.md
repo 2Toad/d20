@@ -2,7 +2,7 @@
 
 [![GitHub version](https://badge.fury.io/gh/2Toad%2Fd20.svg)](https://badge.fury.io/gh/2Toad%2Fd20)
 [![Downloads](https://img.shields.io/npm/dm/@2toad/d20.svg)](https://www.npmjs.com/package/@2toad/d20)
-[![Build Status](https://travis-ci.org/2Toad/d20.svg?branch=master)](https://travis-ci.org/2Toad/d20)
+[![Build status](https://github.com/2Toad/d20/actions/workflows/nodejs.yml/badge.svg)](https://github.com/2Toad/d20/actions/workflows/nodejs.yml)
 
 A magic bag of JavaScript dice (with TypeScript support)
 
