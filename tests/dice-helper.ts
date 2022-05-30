@@ -1,4 +1,4 @@
-import { d20 } from '../src';
+import { d20 } from "../src";
 
 export class DiceHelper {
   static sampleSize: number = 20;

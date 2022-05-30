@@ -1,3 +1,13 @@
-.github
+.github/
+.husky/
+src/
+tests/
+.editorconfig
+.eslintcache
+.eslintignore
+.eslintrc.json
+.gitignore
+.nvmrc
+.prettierignore
+.prettierrc.json
 tsconfig.json
-src
