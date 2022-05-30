@@ -1,10 +1,10 @@
-import { Dice } from './dice';
+import { Dice } from "./dice";
 
 export const dice = (notation: string): number[] => {
   const d = new Dice(notation);
 
   const rolls = [];
-  for (let i = 0; i < d.quantity; i++) {
+  for (let i = 0; i < d.quantity; i += 1) {
     const r = Math.floor(Math.random() * d.sides + 1);
     rolls.push(r);
   }
