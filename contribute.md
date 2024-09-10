@@ -1,6 +1,6 @@
-# Contribute to the d20 project
+# Contribute to the d20 project 🤝
 
-Thank you for wanting to contribute to the d20 project. With your contributions we can ensure d20 remains a leading solution for gernerating random dice within JavaScript projects
+Thank you for wanting to contribute to the d20 project. With your contributions we can ensure d20 remains a leading solution for rolling dice within JavaScript projects.
 
 ## Steps for success
 
@@ -11,10 +11,9 @@ Thank you for wanting to contribute to the d20 project. With your contributions 
    1. Always branch off of `master`, which contains the latest version of d20
 3. [Pull Request](https://github.com/2Toad/d20/pulls) (PR):
    1. Make sure you run the following scripts in local, and that all of them pass, before submitting a PR:
-      1. `npm run lint`
-      2. `npm run prettier`
+      1. `npm run lint:fix`
+      2. `npm run format`
       3. `npm test`
-      4. `npm run build`
    2. Make sure your PR is targeting the correct branch (see Step 2.i)
    3. At the top of your PR description write: "Fixes #_n_". Where _n_ is the number of the Issue your PR is fixing (e.g., `Fixes #33`). This will tell GitHub to associate your PR with the Issue.
 
@@ -22,7 +21,7 @@ Thank you for wanting to contribute to the d20 project. With your contributions 
 
 ### Prerequisites
 
-- Node: [Node 12+](https://nodejs.org)
+- Node: [Node 20+](https://nodejs.org)
 
 ### Source Code
 
@@ -40,8 +39,7 @@ Start app in watch mode: `npm run local`
 
 - Check lint rules: `npm run lint`
 - Fix lint errors: `npm run lint:fix`
-- Check formatting rules: `npm run prettier`
-- Fix formatting errors: `npm run prettier:fix`
+- Fix formatting errors: `npm run format`
 
 ## Appendix
 
@@ -65,7 +63,38 @@ The d20 project includes an .nvmrc file, so you can run `nvm use` to switch to t
 
 The d20 project includes Husky for running Git Hooks. Running `git commit` will trigger `lint-staged` which will lint all files currently staged in Git. If linting fails, the commit will be cancelled
 
-##### Setup
+### Dependencies
 
-1. Install husky: `npx husky install`
-2. Give Husky permission: `sudo chmod -R +x .husky`
+- `chai`: we must use v4.x because v5.x is pure ESM, and we require CommonJS modules
+
+### Deployment
+
+Deployments to Prod consist of building and publishing the d20 lib to NPM, and are automated through our Continuous Deployment workflow.
+
+#### 1. Create New Version
+1. Checkout `master`.
+2. Increment the version in package.json, using semantic versioning (e.g., `1.1.0`).
+3. Rebuild package-lock, to pick up the new version number: `npm i --package-lock-only`.
+4. Push changes:
+   ```
+   git add .
+   git commit -m "Bump version to 1.1.0"
+   git push
+   ```
+
+#### 2. Verify Checks
+1. Navigate to the [CI](https://github.com/2Toad/d20/actions/workflows/ci.yml) workflow.
+2. Ensure the build checks for this push succeed.
+
+#### 3. Publish GitHub Release
+1. Navigate to [d20's releases](https://github.com/2Toad/d20/releases).
+2. Click "Draft a new release":
+   - **Choose a tag**: enter version (e.g., `v1.1.0`) and click "Create new tag"
+   - **Target**: `master`
+   - **Previous tag**: `auto`
+   - **Release title**: (e.g., `1.1.0`)
+   - **Description**: click the "Generate release notes"
+   - [x] **Set as the latest release**
+3. Click "Publish release".
+
+> This will trigger the [CDP](https://github.com/2Toad/d20/actions/workflows/cdp.yml) workflow, which will build and deploy the package to NPM: https://www.npmjs.com/package/@2toad/d20
