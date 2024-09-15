@@ -21,9 +21,23 @@ export class DiceHelper {
 
     for (let i = 0; i < DiceHelper.sampleSize; i++) {
       const rolls = d20.dice(`${quantity}d${sides}`);
-      result.rolls += rolls.length;
-      minSample.push(Math.min(...rolls));
-      maxSample.push(Math.max(...rolls));
+      if (Array.isArray(rolls)) {
+        result.rolls += rolls.length;
+        minSample.push(Math.min(...rolls));
+        maxSample.push(Math.max(...rolls));
+      } else {
+        let min = Infinity;
+        let max = -Infinity;
+        let count = 0;
+        for (const roll of rolls) {
+          min = Math.min(min, roll);
+          max = Math.max(max, roll);
+          count++;
+        }
+        result.rolls += count;
+        minSample.push(min);
+        maxSample.push(max);
+      }
     }
 
     result.min = Math.min(...minSample);

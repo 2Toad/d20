@@ -19,7 +19,7 @@ export class RollHelper {
 
   static test(quantity: number, sides: number): RollHelper {
     const result = new RollHelper(quantity, sides);
-    const samples = [];
+    const samples: number[] = [];
 
     for (let i = 0; i < RollHelper.sampleSize; i++) {
       const roll = d20.roll(`${quantity}d${sides}`);
