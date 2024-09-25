@@ -4,7 +4,6 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
-    target-branch: "master"
     ignore:
       - dependency-name: "chai"
         versions: ">= 4"

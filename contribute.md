@@ -8,7 +8,7 @@ Thank you for wanting to contribute to the d20 project. With your contributions 
    1. Always work off of an Issue. Please do not submit a Pull Request that is not associated with an Issue (create the Issue if necessary).
    2. If you are beginning work on an Issue, please leave a comment on the issue letting us know, and we'll assign the Issue to you. This way somebody else won't start working on the same Issue.
 2. [Branches](https://github.com/2Toad/d20/branches):
-   1. Always branch off of `master`, which contains the latest version of d20
+   1. Always branch off of `main`, which contains the latest version of d20
 3. [Pull Request](https://github.com/2Toad/d20/pulls) (PR):
    1. Make sure you run the following scripts in local, and that all of them pass, before submitting a PR:
       1. `npm run lint:fix`
@@ -49,9 +49,7 @@ The following section includes optional dev tools that enhance the d20 developme
 
 #### NVM
 
-The d20 project includes an .nvmrc file, so you can run `nvm use` to switch to the proper version of Node.
-
-##### Setup
+This project includes an .nvmrc file, so you can run `nvm use` to switch to the proper version of Node.
 
 1. Install nvm: https://github.com/nvm-sh/nvm
 2. Install the Node.js version required by this app: `nvm install`
@@ -61,7 +59,9 @@ The d20 project includes an .nvmrc file, so you can run `nvm use` to switch to t
 
 #### Git Hooks
 
-The d20 project includes Husky for running Git Hooks. Running `git commit` will trigger `lint-staged` which will lint all files currently staged in Git. If linting fails, the commit will be cancelled
+This project includes Husky for running Git Hooks. Running `git commit` will trigger `lint-staged` which will lint all files currently staged in Git. If linting fails, the commit will be cancelled.
+
+> The `postinstall` script in package.json is automatically called by `npm install` and will configure Husky for use in your local environment.
 
 ### Dependencies
 
@@ -72,7 +72,7 @@ The d20 project includes Husky for running Git Hooks. Running `git commit` will 
 Deployments to Prod consist of building and publishing the d20 lib to NPM, and are automated through our Continuous Deployment workflow.
 
 #### 1. Create New Version
-1. Checkout `master`.
+1. Checkout `main`.
 2. Increment the version in package.json, using semantic versioning (e.g., `1.1.0`).
 3. Rebuild package-lock, to pick up the new version number: `npm i --package-lock-only`.
 4. Push changes:
@@ -90,7 +90,7 @@ Deployments to Prod consist of building and publishing the d20 lib to NPM, and a
 1. Navigate to [d20's releases](https://github.com/2Toad/d20/releases).
 2. Click "Draft a new release":
    - **Choose a tag**: enter version (e.g., `v1.1.0`) and click "Create new tag"
-   - **Target**: `master`
+   - **Target**: `main`
    - **Previous tag**: `auto`
    - **Release title**: (e.g., `1.1.0`)
    - **Description**: click the "Generate release notes"
